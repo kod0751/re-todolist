@@ -1,21 +1,25 @@
 import React from "react";
-import Hello from "./Hello";
+import { createGlobalStyle } from 'styled-components';
+import TodoHead from "./components/TodoHead";
+import TodoList from "./components/TodoList";
+import TodoTemplate from "./components/TodoTemplate";
+
+const GlobalStyle = createGlobalStyle `
+  body {
+    background: #e9ecef;
+  }
+`;
 
 function App() {
 
-  const name = 'react';
-  const style = {
-    backgroundColor: 'black',
-    color: 'aqua',
-    fontSize: 24,
-    padding: '1rem'
-  }
-
   return (
-    <div>
-      <Hello name="react" color="red"/>
-      <div style={style}>{name}</div>
-    </div>
+    <>
+      <GlobalStyle />
+      <TodoTemplate>
+        <TodoHead />
+        <TodoList />
+      </TodoTemplate>
+    </>
   );
 }
 
